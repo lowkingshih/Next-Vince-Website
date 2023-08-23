@@ -1,6 +1,13 @@
-import React from 'react'
-import Image from 'next/image'
-import Link from 'next/link'
+import React from 'react';
+import Link from 'next/link';
+
+export const metadata = {
+  title: {
+    default: '巨東科技',
+    template: '%s | 巨東科技'
+  },
+  description: '巨東科技',
+}
 
 export default function Home() {
   return (

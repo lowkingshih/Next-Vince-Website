@@ -4,7 +4,7 @@ import React from 'react'
 
 
 export const metadata: Metadata = {
-  title: '搜尋 | 巨東科技'
+  title: '搜尋'
 }
 const Search = () => {
   return (
@@ -12,7 +12,7 @@ const Search = () => {
       <Link href="/">
           回首頁
       </Link>
-      <div>Search</div>
+      <div>Search</div> 
     </>
   )
 }
