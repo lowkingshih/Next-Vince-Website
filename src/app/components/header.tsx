@@ -2,7 +2,12 @@ import React from "react";
 import ThemeSwitcher from "./theme-switcher";
 import Link from "next/link";
 
-const navList = [
+type Item = {
+  name: string;
+  url: string;
+};
+
+const navList: Item[] = [
   {
     name: "產品列表",
     url: "/products",
@@ -13,7 +18,7 @@ const navList = [
   },
 ];
 
-const NavItem = ({name, url}) => (
+const NavItem = ({name, url}: Item) => (
 	<li>
 		<Link className="text-xl" href={url}>
 			{name}
@@ -31,9 +36,9 @@ const Header = () => {
       </div>
       <nav className="flex align-middle">
         <ul className="flex align-middle">
-			{
-				navList.map(item => <NavItem key={item.url} {...item}/>)
-			}
+          {
+            navList.map(item => <NavItem key={item.url} {...item} />)
+          }
         </ul>
       </nav>
       <div>

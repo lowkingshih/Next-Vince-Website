@@ -1,5 +1,5 @@
 import React from 'react'
-import { Metadata, ResolvingMetadata } from "next";
+import { Metadata } from "next";
 
 interface ProductProps {
     params: {
@@ -12,19 +12,23 @@ interface MetadataProps {
     searchParams: { [key: string]: string | string[] | undefined };
 }
 
+// static slug list
+const productsName: ReadonlyArray<string> = ['mcb1~63a', 'hlc80~125a', 'timer', 'truncking', 'add-on-button'];
+
 export const generateMetadata =  async (
-    { params, searchParams }: MetadataProps,
-    parent?: ResolvingMetadata,
+    { params, searchParams }: MetadataProps
   ): Promise<Metadata>  => {
     const { slug } = params;
-    console.log('generateMetadata', params, searchParams);
-    return {
-      title: slug,
-    };
-  }
+    const metadata: Metadata = {
+        title: slug,
+    }
+        
+    return metadata;
+}
+
 export const dynamicParams = false;
+
 export const generateStaticParams = async () => {
-    const productsName = ['mcb1~63a', 'hlc80~125a', 'timer', 'truncking', 'add-on-button']
     const slugs = productsName.map(slug => ({ slug }));
 
     return slugs
